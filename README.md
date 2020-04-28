@@ -8,7 +8,7 @@ This project was generated using [Nx](https://nx.dev).
 
 ---
 
-## Little Dragon NGO Nx workspace
+## Nx workspace
 
 - **_Firebase multi-site hosting configuration_**
 
@@ -111,8 +111,8 @@ nx affected:lint
 ##### Firebase Staging Environment
 
 ```bash
-# Staging/development environment = "little-dragon-ngo"
-# Login into "little-dragon-ngo" project in order to deploy stuff.
+# Staging/development environment = "ngo"
+# Login into "ngo" project in order to deploy stuff.
 
 npm run firebase.deploy.hosting.staging.admin-app                     # deploy admin-app
 npm run firebase.deploy.hosting.staging.client-app                    # deploy client-app
