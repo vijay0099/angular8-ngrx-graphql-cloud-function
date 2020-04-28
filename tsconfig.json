@@ -1,0 +1,155 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2016",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom", "esnext.asynciterable"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@monorepo/shared/data-access-models": [
+        "libs/shared/data-access-models/src/index.ts"
+      ],
+      "@monorepo/shared/util-directives": [
+        "libs/shared/util-directives/src/index.ts"
+      ],
+      "@monorepo/shared/ui-formatters": [
+        "libs/shared/ui-formatters/src/index.ts"
+      ],
+      "@monorepo/shared/util-services": [
+        "libs/shared/util-services/src/index.ts"
+      ],
+      "@monorepo/shared/data-access-fake-api": [
+        "libs/shared/data-access-fake-api/src/index.ts"
+      ],
+      "@monorepo/shared/environments": [
+        "libs/shared/environments/src/index.ts"
+      ],
+      "@monorepo/shared/data-access-core": [
+        "libs/shared/data-access-core/src/index.ts"
+      ],
+      "@monorepo/shared/feature-dashboard": [
+        "libs/shared/feature-dashboard/src/index.ts"
+      ],
+      "@monorepo/shared/feature-mail": [
+        "libs/shared/feature-mail/src/index.ts"
+      ],
+      "@monorepo/shared/feature-e-commerce": [
+        "libs/shared/feature-e-commerce/src/index.ts"
+      ],
+      "@monorepo/shared/feature-ngbootstrap": [
+        "libs/shared/feature-ngbootstrap/src/index.ts"
+      ],
+      "@monorepo/shared/feature-material": [
+        "libs/shared/feature-material/src/index.ts"
+      ],
+      "@monorepo/shared/feature-user-management": [
+        "libs/shared/feature-user-management/src/index.ts"
+      ],
+      "@monorepo/shared/feature-wizards": [
+        "libs/shared/feature-wizards/src/index.ts"
+      ],
+      "@monorepo/shared/feature-builder": [
+        "libs/shared/feature-builder/src/index.ts"
+      ],
+      "@monorepo/shared/ui-widgets": ["libs/shared/ui-widgets/src/index.ts"],
+      "@monorepo/shared/util-dictionaries": [
+        "libs/shared/util-dictionaries/src/index.ts"
+      ],
+      "@monorepo/shared/ui-pages": ["libs/shared/ui-pages/src/index.ts"],
+      "@monorepo/shared/ui-portlets": ["libs/shared/ui-portlets/src/index.ts"],
+      "@monorepo/shared/ui-material-preview": [
+        "libs/shared/ui-material-preview/src/index.ts"
+      ],
+      "@monorepo/shared/ui-accordion-control": [
+        "libs/shared/ui-accordion-control/src/index.ts"
+      ],
+      "@monorepo/shared/ui-partials": ["libs/shared/ui-partials/src/index.ts"],
+      "@monorepo/shared/feature-crud": [
+        "libs/shared/feature-crud/src/index.ts"
+      ],
+      "@monorepo/shared/ui-general": ["libs/shared/ui-general/src/index.ts"],
+      "@monorepo/shared/assets": ["libs/shared/assets/src/index.ts"],
+      "@monorepo/shared/styles": ["libs/shared/styles/src/index.ts"],
+      "@monorepo/shared/util-lang": ["libs/shared/util-lang/src/index.ts"],
+      "@monorepo/client/assets": ["libs/client/assets/src/index.ts"],
+      "@monorepo/client/styles": ["libs/client/styles/src/index.ts"],
+      "@monorepo/client/ui-theme": ["libs/client/ui-theme/src/index.ts"],
+      "@monorepo/client/util-config": ["libs/client/util-config/src/index.ts"],
+      "@monorepo/client/util-lang": ["libs/client/util-lang/src/index.ts"],
+      "@monorepo/client/feature-auth": [
+        "libs/client/feature-auth/src/index.ts"
+      ],
+      "@monorepo/admin/assets": ["libs/admin/assets/src/index.ts"],
+      "@monorepo/admin/styles": ["libs/admin/styles/src/index.ts"],
+      "@monorepo/admin/ui-theme": ["libs/admin/ui-theme/src/index.ts"],
+      "@monorepo/admin/util-config": ["libs/admin/util-config/src/index.ts"],
+      "@monorepo/admin/util-lang": ["libs/admin/util-lang/src/index.ts"],
+      "@monorepo/admin/feature-auth": ["libs/admin/feature-auth/src/index.ts"],
+      "@monorepo/admin/feature-user": [
+        "libs/admin/feature-user/src/index.ts"
+      ],
+      "@monorepo/admin/feature-account": [
+        "libs/admin/feature-account/src/index.ts"
+      ],
+      "@monorepo/admin/data-access-operations": [
+        "libs/admin/data-access-operations/src/index.ts"
+      ],
+      "@monorepo/admin/data-access-core": [
+        "libs/admin/data-access-core/src/index.ts"
+      ],
+      "@monorepo/client/data-access-operations": [
+        "libs/client/data-access-operations/src/index.ts"
+      ],
+      "@monorepo/api/data-access-models": [
+        "libs/api/data-access-models/src/index.ts"
+      ],
+      "@monorepo/api/data-access-core": [
+        "libs/api/data-access-core/src/index.ts"
+      ],
+      "@monorepo/graphql-playground/data-access-models": [
+        "libs/graphql-playground/data-access-models/src/index.ts"
+      ],
+      "@monorepo/graphql-playground/data-access-data": [
+        "libs/graphql-playground/data-access-data/src/index.ts"
+      ],
+      "@monorepo/admin/data-access-models": [
+        "libs/admin/data-access-models/src/index.ts"
+      ],
+      "@monorepo/client/data-access-models": [
+        "libs/client/data-access-models/src/index.ts"
+      ],
+      "@monorepo/graphql-playground/data-access-core-mocking": [
+        "libs/graphql-playground/data-access-core-mocking/src/index.ts"
+      ],
+      "@monorepo/graphql-playground-data-access-core": [
+        "libs/graphql-playground/data-access-core/src/index.ts"
+      ],
+      "@monorepo/graphql-playground/util-helpers": [
+        "libs/graphql-playground/util-helpers/src/index.ts"
+      ],
+      "@monorepo/shared/util-validations": [
+        "libs/shared/util-validations/src/index.ts"
+      ],
+      "@monorepo/shared/util-tools": ["libs/shared/util-tools/src/index.ts"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "typings",
+    "tools/temp",
+    "apps/admin-app-e2e",
+    "apps/client-app-e2e"
+  ]
+}

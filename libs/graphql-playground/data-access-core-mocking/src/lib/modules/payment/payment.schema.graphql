@@ -1,0 +1,26 @@
+type Query {
+  getPayment(id: String!): Payment!
+  getPayments: [Payment!]!
+}
+
+type Mutation {
+  createPayment(data: PaymentInput!): Payment!
+}
+
+type Payment {
+  # COMMON
+  id: ID!
+
+  # SPECIFIC
+
+  # JOINTS
+}
+
+input PaymentInput {
+  activityType: PaymentTypes
+}
+
+enum PaymentTypes {
+  P1
+  P2
+}

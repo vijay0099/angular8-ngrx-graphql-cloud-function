@@ -1,0 +1,73 @@
+# # TESTING CONFIG
+# overwrite: true
+# generates:
+#   # GENERATE SERVER TYPES + RESOLVER TYPES
+#   apps/functions/src/graphql-api/src/app/types/generated.ts:
+#     schema:
+#       - apps/functions/src/graphql-api/src/app/schemas/testing/**/*.graphql
+#       - apps/functions/src/graphql-api/src/app/schemas/testing/**/*.graphql
+#     plugins:
+#       - typescript
+#       - typescript-resolvers
+
+#   # GENERATE SHARED TYPES
+#   libs/shared/data-access-models/src/lib/generated-graphql-types.ts:
+#     config:
+#       declarationKind: "class"
+#     schema:
+#       - apps/functions/src/graphql-api/src/app/schemas/testing/**/*.graphql
+#     plugins:
+#       - typescript
+#==================================================================================================
+
+# DEMO MODE ###
+overwrite: true
+generates:
+  # GENERATE SERVER TYPES + RESOLVER TYPES
+  libs/graphql-playground/data-access-models/src/lib/types/generated.ts:
+    config:
+      declarationKind: 'class'
+    schema:
+      - libs/graphql-playground/data-access-core/src/lib/**/*.graphql # DEMO MODE
+    plugins:
+      - typescript
+      - typescript-resolvers
+# DEV MODE ###
+# overwrite: true
+# generates:
+#   # GENERATE SERVER TYPES + RESOLVER TYPES
+#   libs/api/data-access-models/src/lib/types/generated.ts:
+#     config:
+#       declarationKind: "class"
+#     schema:
+#        libs/api/data-access-core/src/lib/**/*.graphql
+#     plugins:
+#       - typescript
+#       - typescript-resolvers
+#==============================================================================================
+# # GENERATE ADMIN-APP TYPES + ANGULAR SERVICES
+# libs/admin/data-access-graphql/src/lib/types/generated.ts:
+#   schema:
+#     - apps/functions/src/graphql-api/src/app/schemas/admin-app/**/*.graphql
+#   documents: apps/functions/src/graphql-api/src/app/documents/admin-app/**/*.graphql
+#   plugins:
+#     - typescript
+#     - typescript-operations
+#     - typescript-apollo-angular
+# # GENERATE CLIENT-APP TYPES + ANGULAR SERVICES
+# libs/client/data-access-graphql/src/lib/types/generated.ts:
+#   schema:
+#     - apps/functions/src/graphql-api/src/app/schemas/client-app/**/*.graphql
+#   documents: apps/functions/src/graphql-api/src/app/documents/client-app/**/*.graphql
+#   plugins:
+#     - typescript
+#     - typescript-operations
+#     - typescript-apollo-angular
+# # GENERATE SHARED TYPES
+# libs/shared/data-access-models/src/lib/generated-graphql-types.ts:
+#   config:
+#     declarationKind: "interface"
+#   schema:
+#     - apps/functions/src/graphql-api/src/app/schemas/**/*.graphql
+#   plugins:
+#     - typescript

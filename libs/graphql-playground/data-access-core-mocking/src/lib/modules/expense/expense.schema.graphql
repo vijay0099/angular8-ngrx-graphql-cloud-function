@@ -1,0 +1,26 @@
+type Query {
+  getExpense(id: String!): Expense!
+  getExpenses: [Expense!]!
+}
+
+type Mutation {
+  createExpense(data: ExpenseInput!): Expense!
+}
+
+type Expense {
+  # COMMON
+  id: ID!
+
+  # SPECIFIC
+
+  # JOINTS
+}
+
+input ExpenseInput {
+  activityType: ExpenseTypes
+}
+
+enum ExpenseTypes {
+  E1
+  E2
+}

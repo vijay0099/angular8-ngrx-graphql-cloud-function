@@ -1,0 +1,41 @@
+type Query {
+  getValorization(query: String): [Valorization!]!
+  getValorizationById(id: ID!): Valorization!
+}
+
+type Mutation {
+  createValorization(data: ValorizationInput): Valorization!
+  updateValorization(data: ValorizationUpdateInput): Valorization!
+  deleteValorization(id: ID!): Valorization!
+}
+
+type Valorization {
+  id: ID!
+  user: User!
+  pointType:pointTypes!
+  point: Int!
+  createdBy:User
+  createdAt: String!
+  updatedAt: String
+}
+
+input ValorizationInput {
+  userId: ID!
+  pointType:String!
+  point: Int!
+  createdBy:ID!
+}
+
+input ValorizationUpdateInput {
+  id:ID!
+  userId: ID!
+  pointType:String!
+  point: Int!
+  createdBy:ID!
+}
+
+enum pointTypes {
+  MATERIAL
+  FINANCIAL
+  EDUCATIONAL
+}

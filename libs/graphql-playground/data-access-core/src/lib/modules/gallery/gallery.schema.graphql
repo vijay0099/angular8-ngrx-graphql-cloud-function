@@ -1,0 +1,50 @@
+type Query {
+  getGallery(id: String!): Gallery!
+  getGalleries: [Gallery!]!
+}
+
+type Mutation {
+  createGallery(data: GalleryInput!): Gallery!
+  updateGallery(data: GalleryUpdateInput!): Gallery!
+  deleteGallery(id: ID!): Gallery!
+}
+
+type Gallery {
+  # COMMON
+  id: ID!
+  galleryType: GalleryTypes
+  title: String!
+  description: String
+  images: [String]
+  isActive: Boolean!
+  createdAt: String
+  updatedAt: String
+  # JOINTS
+  createdBy: User!
+}
+
+input GalleryInput {
+  galleryType: String
+  title: String!
+  description: String
+  images: [String]
+  isActive: Boolean!
+  # JOINTS
+  createdBy: ID!
+}
+
+input GalleryUpdateInput {
+  id:ID!
+  galleryType: String
+  title: String!
+  description: String
+  images: [String]
+  isActive: Boolean!
+  # JOINTS
+  createdBy: ID!
+}
+
+enum GalleryTypes {
+  PRIVATE
+  PUBLIC
+}

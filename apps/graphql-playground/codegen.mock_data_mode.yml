@@ -1,0 +1,50 @@
+#                       ⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒
+#                        ⛒    GRAPHQL PLAYGROUND / MOCK_DATA_MODE   ⛒
+#                       ⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒⛒
+
+overwrite: true
+generates:
+  # GENERATE SERVER TYPES + RESOLVER TYPES
+  libs/graphql-playground/data-access-models/src/lib/types/generated.ts:
+    config:
+      declarationKind: "class"
+    schema:
+      - libs/graphql-playground/data-access-core-mocking/modules/src/lib/**/*.graphql
+    plugins:
+      - typescript
+      - typescript-resolvers
+
+  # GENERATE ADMIN-APP TYPES + ANGULAR SERVICES
+  libs/admin/data-access-models/src/lib/types/generated.ts:
+    config:
+      declarationKind: "class"
+    schema:
+      - libs/graphql-playground/data-access-core-mocking/src/lib/modules/**/*.graphql
+    documents:
+      - libs/admin/data-access-operations/src/lib/documents/**/*.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-apollo-angular
+
+  # GENERATE CLIENT-APP TYPES + ANGULAR SERVICES
+  libs/client/data-access-models/src/lib/types/generated.ts:
+    config:
+      declarationKind: "class"
+    schema:
+      - libs/graphql-playground/data-access-core-mocking/src/lib/modules/**/*.graphql
+    documents:
+      - libs/client/data-access-operations/src/lib/documents/**/*.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-apollo-angular
+
+  # GENERATE SHARED TYPES
+  libs/shared/data-access-models/src/lib/types/generated.ts:
+    config:
+      declarationKind: "interface"
+    schema:
+      - libs/graphql-playground/data-access-core-mocking/src/lib/modules/**/*.graphql
+    plugins:
+      - typescript

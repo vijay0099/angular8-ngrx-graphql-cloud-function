@@ -1,0 +1,220 @@
+{
+  "npmScope": "monorepo",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "functions": {
+      "tags": ["type:functions", "scope:shared"]
+    },
+    "shared-data-access-models": {
+      "tags": ["type:data-access", "scope:shared"]
+    },
+    "shared-util-directives": {
+      "tags": ["type:util", "scope:shared"]
+    },
+    "shared-ui-formatters": {
+      "tags": ["type:ui", "scope:shared"]
+    },
+    "shared-util-services": {
+      "tags": ["type:util", "scope:shared"]
+    },
+    "shared-data-access-fake-api": {
+      "tags": ["type:data-access", "scope:shared"]
+    },
+    "shared-environments": {
+      "tags": ["type:settings", "scope:shared"]
+    },
+    "shared-data-access-core": {
+      "tags": ["type:data-access", "scope:shared"]
+    },
+    "shared-feature-dashboard": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-feature-mail": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-e-commerce": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-feature-ngbootstrap": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-feature-material": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-feature-user-management": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-feature-wizards": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-ui-builder": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-feature-builder": {
+      "tags": ["type:util", "scope:shared"]
+    },
+    "shared-ui-widgets": {
+      "tags": ["type:ui", "scope:shared"]
+    },
+    "shared-util-dictionaries": {
+      "tags": ["type:util", "scope:shared"]
+    },
+    "shared-ui-pages": {
+      "tags": ["type:ui", "scope:shared"]
+    },
+    "shared-ui-portlets": {
+      "tags": ["type:ui", "scope:shared"]
+    },
+    "shared-ui-material-preview": {
+      "tags": ["type:ui", "scope:shared"]
+    },
+    "shared-ui-accordion-control": {
+      "tags": ["type:ui", "scope:shared"]
+    },
+    "shared-ui-partials": {
+      "tags": ["type:ui", "scope:shared"]
+    },
+    "shared-feature-crud": {
+      "tags": ["type:feature", "scope:shared"]
+    },
+    "shared-ui-general": {
+      "tags": ["type:ui", "scope:shared"]
+    },
+    "shared-assets": {
+      "tags": ["type:assets", "scope:shared"]
+    },
+    "shared-styles": {
+      "tags": ["type:styles", "scope:shared"]
+    },
+    "shared-util-lang": {
+      "tags": ["type:util", "scope:shared"]
+    },
+    "client-app": {
+      "tags": ["type:app", "scope:client"],
+      "implicitDependencies": [
+        "functions",
+        "shared-assets",
+        "shared-styles",
+        "client-assets",
+        "client-styles"
+      ]
+    },
+    "client-app-e2e": {
+      "tags": ["type:e2e", "scope:client"],
+      "implicitDependencies": ["client-app"]
+    },
+    "client-styles": {
+      "tags": ["type:styles", "scope:client"]
+    },
+    "client-assets": {
+      "tags": ["type:assets", "scope:client"]
+    },
+    "client-ui-theme": {
+      "tags": ["type:ui", "scope:client"]
+    },
+    "client-util-config": {
+      "tags": ["type:util", "scope:client"]
+    },
+    "client-util-lang": {
+      "tags": ["type:util", "scope:client"]
+    },
+    "client-feature-auth": {
+      "tags": ["type:feature", "scope:client"]
+    },
+    "admin-app": {
+      "tags": ["type:app", "scope:admin"],
+      "implicitDependencies": [
+        "functions",
+        "shared-assets",
+        "shared-styles",
+        "admin-assets",
+        "admin-styles"
+      ]
+    },
+    "admin-app-e2e": {
+      "tags": ["type:e2e", "scope:admin"],
+      "implicitDependecies": ["admin-app"]
+    },
+    "admin-styles": {
+      "tags": ["type:styles", "scope:admin"]
+    },
+    "admin-assets": {
+      "tags": ["type:assets", "scope:admin"]
+    },
+    "admin-ui-theme": {
+      "tags": ["type:ui", "scope:admin"]
+    },
+    "admin-util-config": {
+      "tags": ["type:util", "scope:admin"]
+    },
+    "admin-util-lang": {
+      "tags": ["type:util", "scope:admin"]
+    },
+    "admin-feature-auth": {
+      "tags": ["type:feature", "scope:admin"]
+    },
+    "admin-data-access-core": {
+      "tags": ["type:data-access", "scope:admin"]
+    },
+    "admin-feature-user": {
+      "tags": ["type:feature", "scope:admin"]
+    },
+    "admin-feature-account": {
+      "tags": ["type:feature", "scope:admin"]
+    },
+    "graphql-api": {
+      "tags": ["scope:api"]
+    },
+    "admin-data-access-operations": {
+      "tags": ["type:data-access", "scope:admin"]
+    },
+    "client-data-access-operations": {
+      "tags": ["type:data-access", "scope:client"]
+    },
+    "api-data-access-models": {
+      "tags": ["type:data-access", "scope:api"]
+    },
+    "api-data-access-core": {
+      "tags": ["type:data-access", "scope:api"]
+    },
+    "graphql-playground": {
+      "tags": ["scope:playground"]
+    },
+    "graphql-playground-data-access-core-mocking": {
+      "tags": ["type:data-access", "scope:playground"]
+    },
+    "graphql-playground-data-access-core": {
+      "tags": ["type:data-access", "scope:playground"]
+    },
+    "graphql-playground-data-access-models": {
+      "tags": ["type:data-access", "scope:playground"]
+    },
+    "graphql-playground-data-access-data": {
+      "tags": ["type:data-access", "scope:playground"]
+    },
+    "admin-data-access-models": {
+      "tags": ["type:data-access", "scope:admin"]
+    },
+    "client-data-access-models": {
+      "tags": ["type:data-access", "scope:client"]
+    },
+    "graphql-playground-util-helpers": {
+      "tags": ["type:util", "scope:shared"]
+    },
+    "shared-util-validations": {
+      "tags": ["type:util", "scope:shared"]
+    },
+    "shared-util-tools": {
+      "tags": ["type:util", "scope:shared"]
+    }
+  }
+}

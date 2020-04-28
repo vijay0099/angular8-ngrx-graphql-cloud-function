@@ -1,0 +1,9 @@
+<div [hidden]="!resMessage" class="alert alert-{{type}}" role="alert" #alertNotice>
+	<div class="alert-text" [innerHTML]="resMessage"></div>
+</div>
+<div *ngIf="success$ | async as success" class="alert alert-success" role="alert">
+	{{ success }}
+</div>
+<div *ngIf="errors$ | async as error" class="alert alert-danger" role="alert">
+	{{ error }}
+</div>

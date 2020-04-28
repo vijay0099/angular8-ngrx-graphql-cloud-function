@@ -1,0 +1,13 @@
+query getUser($id: String!) {
+  getUser(id: $id) {
+    id 
+    username 
+    fullName
+    email 
+    phoneNumber 
+    role
+    providerId
+    photoUrl
+    isNewUser
+  }
+}

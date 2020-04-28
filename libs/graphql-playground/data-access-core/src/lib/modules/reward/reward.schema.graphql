@@ -1,0 +1,40 @@
+type Query {
+  getAllRewards(query: String): [Reward!]!
+  getRewardById(id: String): Reward!
+}
+
+type Mutation {
+  createReward(data: RewardInput): Reward!
+  updateReward(data: RewardUpdateInput): Reward!
+  deleteReward(id: ID!): Reward!
+}
+
+type Reward {
+  id: ID!
+  lavel: RewardLavel!
+  startPoint: Int!
+  endPoint: Int!
+  createdBy: User!
+  createdAt: String!
+  updatedAt: String
+}
+
+input RewardInput {
+  lavel: RewardLavel!
+  startPoint: Int!
+  endPoint: Int!
+  createdBy: ID!
+}
+
+input RewardUpdateInput {
+  id: ID!
+  lavel: RewardLavel!
+  startPoint: Int!
+  endPoint: Int!
+}
+
+enum RewardLavel {
+  BRONZE
+  SILVER
+  GOLD
+}

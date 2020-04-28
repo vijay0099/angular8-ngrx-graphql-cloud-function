@@ -1,0 +1,27 @@
+type Query {
+  getGallery(id: String!): Gallery!
+  getGalleries: [Gallery!]!
+}
+
+type Mutation {
+  createGallery(data: GalleryInput!): Gallery!
+}
+
+type Gallery {
+  # COMMON
+  galleryType: GalleryTypes
+  id: ID!
+
+  # SPECIFIC
+
+  # JOINTS
+}
+
+input GalleryInput {
+  galleryType: String
+}
+
+enum GalleryTypes {
+  PRIVATE
+  PUBLIC
+}

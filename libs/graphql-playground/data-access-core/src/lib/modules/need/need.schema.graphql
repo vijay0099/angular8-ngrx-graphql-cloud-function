@@ -1,0 +1,66 @@
+type Query {
+  getNeed(id:String!): Need!
+  getNeeds(query: String): [Need!]!
+  getNeedById(query: FindInput): Need!
+}
+
+type Mutation {
+  createNeed(data: NeedInput): Need!
+  updateNeed(data: NeedUpdateInput): Need!
+  deleteNeed(data: DeleteInput): Need!
+}
+
+input FindInput{
+  id: ID!
+  belongsTo: ID!
+}
+
+input DeleteInput{
+  id: ID!
+  belongsTo: ID!
+}
+
+type Need {
+  needType: needTypes!
+  id: ID!
+  title: String!
+  description: String!
+  isLongTermNeed: Boolean
+  isActive: Boolean
+  seqNo: Boolean
+
+  testingError: String
+
+  createdBy:User
+  # JOINTS
+  child: Child!
+}
+
+input NeedInput {
+  needType: String!
+  title: String!
+  description: String!
+  isLongTermNeed: Boolean
+  isActive: Boolean
+  seqNo: Boolean
+  # JOINTS
+  belongsTo: ID!
+}
+
+input NeedUpdateInput {
+  id:ID!
+  needType: String
+  title: String
+  description: String
+  isLongTermNeed: Boolean
+  isActive: Boolean
+  seqNo: Boolean
+  # JOINTS
+  belongsTo: ID!
+}
+
+enum needTypes {
+  MATERIAL
+  FINANCIAL
+  EDUCATIONAL
+}

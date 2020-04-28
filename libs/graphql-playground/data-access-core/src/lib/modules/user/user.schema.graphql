@@ -1,0 +1,152 @@
+type Query {
+  getUser(id: String!): User!
+  userLogin(query: UserLoginInput): User!
+  validateUser(query: UserValidateInput): UserValidateOutput!
+  getUsers(query: QueryFilterInput!): [User!]!
+}
+
+type Mutation {
+  createUser(data: UserInput!): User!
+  updateUser(data: UserUpdateInput!): User!
+  createAdmin(data: AdminInput!): User!
+  createStaff(data: StaffInput!): User!
+  deleteUser(id: ID!): User!
+}
+
+input UserFilterInput {
+  search: String
+  limit: Int!
+  offset: Int!
+}
+
+input UserLoginInput {
+  email: String!
+  password: String!
+}
+
+input UserValidateInput {
+  username: String
+  id: ID
+}
+
+type UserValidateOutput {
+  status: Boolean!
+}
+
+# PRIVATE DATA = "UsersPrivate" root collection
+type User {
+  # COMMON
+  role: Roles!
+  id: ID!
+  username: String!
+  fullName: String!
+  providerId: String
+  email: String!
+  password: String!
+  phoneNumber: String
+  dob: String
+  photoUrl: String
+  isNewUser: Boolean
+
+  notifications: NotificationUser
+
+  # SPECIFIC
+  isSponsor: Boolean
+  isVolunteer: Boolean
+  isVerified: Boolean
+  isActive: Boolean
+  isOnline: Boolean
+
+  hasDrivingLicence: Boolean
+  hasVehicle: Boolean
+  languages: [String]
+  comment: String
+  activities: [String]
+  tutolage: [String]
+  createdAt: String!
+  updatedAt: String
+}
+
+input AdminInput {
+  role: Roles
+  username: String
+  fullName: String
+  providerId: String
+  email: String
+  password: String
+  phoneNumber: String
+  dob: String
+  photoUrl: String
+  isNewUser: Boolean
+
+  isSponsor: Boolean
+  isSupporter: Boolean
+  isVolunteer: Boolean
+  isVerified: Boolean
+  isActive: Boolean
+  isOnline: Boolean
+}
+
+input StaffInput {
+  role: Roles = STAFF
+  username: String!
+  fullName: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+}
+
+input UserInput {
+  id: ID!
+  role: Roles = USER
+  username: String!
+  fullName: String!
+  providerId: String!
+  email: String
+  password: String
+  phoneNumber: String
+  dob: String
+  photoUrl: String
+  isNewUser: Boolean
+
+  isSponsor: Boolean
+  isSupporter: Boolean
+  isVolunteer: Boolean
+  isVerified: Boolean
+  isActive: Boolean
+  isOnline: Boolean
+}
+
+input UserUpdateInput {
+  id: ID!
+  role: Roles
+  username: String
+  fullName: String
+  providerId: String
+  email: String
+  password: String
+  phoneNumber: String
+  dob: String
+  photoUrl: String
+  isNewUser: Boolean
+
+  isSponsor: Boolean
+  isSupporter: Boolean
+  isVolunteer: Boolean
+  isVerified: Boolean
+  isActive: Boolean
+  isOnline: Boolean
+}
+
+# GraphQL allows you to define enumerations types (short enums), a language feature to express
+# the semantics of a type that has a fixed set of values
+enum Roles {
+  ADMIN
+  STAFF
+  USER
+}
+
+enum UserStatus {
+  VOLUNTEER
+  SPONSOR
+}

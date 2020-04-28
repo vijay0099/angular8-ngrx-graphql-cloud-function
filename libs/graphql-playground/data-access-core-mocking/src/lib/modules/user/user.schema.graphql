@@ -1,0 +1,112 @@
+# DATA_SYNCHRONIZATION
+# CLOUD FUNCTION: syncUserCollection()
+# EVENT HANDLER: onWrite()
+# DESCRIPTION: DATABASE TRIGGER  IN FUNCTIONS WATCHES CHANGES ON userPrivate COLLECTION > UPDATES User COLLECTION
+
+type Query {
+  getUser(id: String!): User!
+  getUsers: [User!]!
+}
+
+type Mutation {
+  # addUser(data: UserInput!): User!
+
+  createUser(data: UserInput!): User!
+  createAdmin(data: AdminInput!): User!
+  createStaff(data: StaffInput!): User!
+  # deleteUser(id: ID!): User!
+}
+
+# PUBLIC DATA = "Users" root collection
+# type User implements Node {
+#   id: ID!
+#   username: String!
+#   firstName: String!
+#   lastName: String!
+#   email: String!
+#   password: String!
+#   phoneNumber: String!
+#   dob: String!
+#   role: Roles!
+# }
+
+# PRIVATE DATA = "UsersPrivate" root collection
+type User implements Node {
+  # COMMON
+  role: Roles!
+  id: ID!
+  username: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  dob: String!
+
+  notifications: NotificationUser
+  # SPECIFIC
+  hasDrivingLicence: Boolean
+  hasVehicle: Boolean
+  languages: [String]
+  comment: String
+  activities: [String]
+  tutolage: [String]
+  # createdAt: DateTime!
+  # updatedAt: DateTime
+}
+
+input AdminInput {
+  role: Roles = ADMIN
+  username: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+}
+
+input StaffInput {
+  role: Roles = STAFF
+  username: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+}
+
+input UserInput {
+  role: Roles = USER
+  username: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  dob: String!
+}
+
+# GraphQL allows you to define enumerations types (short enums), a language feature to express
+# the semantics of a type that has a fixed set of values
+enum Roles {
+  ADMIN
+  STAFF
+  USER
+}
+
+enum UserStatus {
+  VOLUNTEER
+  SPONSOR
+}
+
+# An interface can be used to describe a type in an abstract way. It allows you to specify a
+# set of fields that any concrete type, which implements this interface, needs to have.
+# In many GraphQL schemas, every type is required to have an id field. Using interfaces,
+# this requirement can be expressed by defining an interface with this field and then making
+# sure that all custom types implement it:
+interface Node {
+  id: ID!
+  role: Roles!
+}
+# interface is causing the following warning
+# ! Type "Node" is missing a "__resolveType" resolver. Pass false into "resolverValidationOptions.requireResolversForResolveType" to disable this warning.

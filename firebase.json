@@ -1,0 +1,43 @@
+{
+  "functions": {
+    "predeploy": [
+      "ng lint functions",
+      "npm run build:functions"
+    ],
+    "source": "/"
+  },
+  "hosting": [
+    {
+      "target": "admin",
+      "public": "dist/apps/admin-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**"
+        }
+      ]
+    },
+    {
+      "target": "client",
+      "public": "dist/apps/client-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**"
+        }
+      ]
+    }
+  ],
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

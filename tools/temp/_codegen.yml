@@ -1,0 +1,10 @@
+# libs/angular/data-access/codegen.yml
+overwrite: true
+schema: "apps/functions/src/graphql-api/src/app/schema.graphql"
+generates:
+  libs/admin/data-access/src/lib/generated/generated.ts:
+    documents: "libs/admin/data-access/src/lib/graphql/**/*.graphql"
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-apollo-angular"

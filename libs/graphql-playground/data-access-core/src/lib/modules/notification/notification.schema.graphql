@@ -1,0 +1,44 @@
+type Query {
+  getNotifications(query: String): [Notification!]!
+  getNotification(id: String): Notification!
+}
+
+type Mutation {
+  createNotification(data: NotificationInput): Notification!
+  updateNotification(data: NotificationUpdateInput): Notification!
+  deleteNotification(id: ID!): Notification!
+}
+
+type Notification {
+  id: ID!
+  notificationType: NotificationType!
+  title: String!
+  message: String!
+  users: NotificationUser!
+  content: String
+  createdAt: String!
+  updatedAt: String
+  createdBy: User
+}
+
+input NotificationInput {
+  notificationType: NotificationType!
+  title: String!
+  message: String!
+  content: String
+  createdBy: ID!
+}
+
+input NotificationUpdateInput {
+  id:ID!
+  notificationType: NotificationType!
+  title: String!
+  message: String!
+  content: String
+}
+
+enum NotificationType {
+  ChristmasGift
+  EasterGift
+  BackToSchool
+}

@@ -1,0 +1,105 @@
+type Query {
+  getFamilies(query: FamilyFilterInput!): [Family!]!
+  getFamily(id: String!): Family!
+}
+
+type Mutation {
+  createFamily(data: FamilyInput!): Family!
+  deleteFamily(id: ID!): Family!
+  updateFamily(data: FamilyUpdateInput): Family!
+}
+
+input FamilyFilterInput{
+  search: String
+  limit:Int!
+  offset:Int!
+}
+
+type FamilyData {
+  totalData : Int!
+  data : Family!
+}
+
+type Family {
+  id: ID!
+  category: String!
+  isFacebookMember: Boolean!
+  isActive: Boolean
+  # JOINTS
+  carrierPrimary: CarrierPrimary!
+  carrierSecondary: CarrierSecondary!
+  address: Address!
+  children: [Child]
+  createdBy:User
+  createdAt:String!
+  updatedAt:String!
+}
+
+type CarrierPrimary {
+  firstName: String!
+  lastName: String
+  email: String
+  phone: String
+  mobile: String
+}
+
+type CarrierSecondary {
+  firstName: String!
+  lastName: String
+  email: String
+  phone: String
+  mobile: String
+}
+
+type Address {
+    addressLine1: String!
+    addressLine2: String
+    postalCode: String!
+    city: String!
+}
+
+input FamilyInput {
+  category: String!
+  isFacebookMember: Boolean!
+  isActive: Boolean
+  # JOINTS
+  carrierPrimary: CarrierPrimaryInput!
+  carrierSecondary: CarrierSecondaryInput!
+  address: AddressInput!
+  createdBy: ID
+}
+
+input FamilyUpdateInput {
+  id: ID!
+  category: String!
+  isFacebookMember: Boolean!
+  isActive: Boolean
+  # JOINTS
+  carrierPrimary: CarrierPrimaryInput!
+  carrierSecondary: CarrierSecondaryInput!
+  address: AddressInput!
+  createdBy: ID
+}
+
+input CarrierPrimaryInput {
+  firstName: String!
+  lastName: String
+  email: String
+  phone: String
+  mobile: String
+}
+
+input CarrierSecondaryInput {
+  firstName: String!
+  lastName: String
+  email: String
+  phone: String
+  mobile: String
+}
+
+input AddressInput {
+    addressLine1: String!
+    addressLine2: String
+    postalCode: String!
+    city: String!
+}

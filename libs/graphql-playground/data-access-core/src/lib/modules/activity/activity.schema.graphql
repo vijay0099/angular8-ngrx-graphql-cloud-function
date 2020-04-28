@@ -1,0 +1,50 @@
+type Query {
+  getActivity(id: String!): Activity!
+  getActivities: [Activity!]!
+}
+
+type Mutation {
+  createActivity(data: ActivityInput!): Activity!
+  updateActivity(data: ActivityUpdateInput): Activity!
+  deleteActivity(id: String!): Activity!
+}
+
+type Activity {
+  id: ID!
+  activityType:String!
+  activity: String!
+  description: String!
+  isActive: Boolean!
+  createdAt: String
+  updatedAt: String
+  # JOINTS
+  createdBy: User!
+}
+
+input ActivityInput {
+  activityType: ActivityTypes
+  activity: String!
+  description: String!
+  isActive: Boolean!
+  createdAt: String
+  updatedAt: String
+  # JOINTS
+  createdBy: ID!
+}
+
+input ActivityUpdateInput {
+  id: ID!
+  activityType: ActivityTypes
+  activity: String!
+  description: String!
+  isActive: Boolean!
+  createdAt: String
+  updatedAt: String
+  # JOINTS
+  createdBy: ID!
+}
+
+enum ActivityTypes {
+  T1
+  T2
+}

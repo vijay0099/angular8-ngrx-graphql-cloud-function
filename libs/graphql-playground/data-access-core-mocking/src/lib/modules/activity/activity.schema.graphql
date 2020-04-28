@@ -1,0 +1,26 @@
+type Query {
+  getActivity(id: String!): Activity!
+  getActivities: [Activity!]!
+}
+
+type Mutation {
+  createActivity(data: ActivityInput!): Activity!
+}
+
+type Activity {
+  # COMMON
+  id: ID!
+
+  # SPECIFIC
+
+  # JOINTS
+}
+
+input ActivityInput {
+  activityType: ActivityTypes
+}
+
+enum ActivityTypes {
+  T1
+  T2
+}

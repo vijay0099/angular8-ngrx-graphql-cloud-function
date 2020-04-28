@@ -1,0 +1,13 @@
+type Query {
+  user(id: String!): User
+  getUsers: [User!]!
+}
+
+# A Twitter User
+type User {
+  id: ID!
+  name: String!
+  # screenName: String!
+  # statusesCount: Int!
+  # tweets: [Tweet]!
+}

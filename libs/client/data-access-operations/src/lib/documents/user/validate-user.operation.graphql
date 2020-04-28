@@ -1,0 +1,5 @@
+query validateUser($query: UserValidateInput!) {
+  validateUser(query: $query) {
+    status
+  }
+}

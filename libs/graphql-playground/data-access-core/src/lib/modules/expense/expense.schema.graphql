@@ -1,0 +1,59 @@
+type Query {
+  getExpense(id: String!): Expense!
+  getExpenses: [Expense!]!
+}
+
+type Mutation {
+  createExpense(data: ExpenseInput!): Expense!
+  updateExpense(data: ExpenseUpdateInput): Expense!
+  deleteExpense(id: String!): Expense!
+}
+
+type Expense {
+  id: ID!
+  expenseType: String!
+  title: String!
+  description: String!
+  isLabeled: Boolean
+  amount: Float!
+  currency: String!
+  expenseDate: String!
+  isActive: Boolean
+  createdAt: String!
+  updatedAt: String!
+  # JOINTS
+  createdBy: User!
+}
+
+input ExpenseInput {
+  expenseType: ExpenseTypes
+  title: String!
+  description: String!
+  isLabeled: Boolean
+  amount: Float!
+  currency: String!
+  expenseDate: String!
+  isActive: Boolean
+  # JOINTS
+  createdBy: ID!
+}
+
+input ExpenseUpdateInput {
+  id: ID!
+  expenseType: ExpenseTypes
+  title: String!
+  description: String!
+  isLabeled: Boolean
+  amount: Float!
+  currency: String!
+  expenseDate: String!
+  isActive: Boolean
+}
+
+enum ExpenseTypes {
+  RENT
+  UTILITIES
+  COMMUNICATIONS
+  POSTAGE
+  FUEL
+}

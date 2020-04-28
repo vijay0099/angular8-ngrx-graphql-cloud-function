@@ -1,0 +1,89 @@
+type Query {
+  getChildren: [Child!]!
+  getChild(id: String!): Child!
+}
+
+type Mutation {
+  createChild(data: ChildInput!): Child!
+  deleteChild(id: ID!): Child!
+  updateChild(data: ChildUpdateInput): Child
+}
+
+type Child {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  gender: Genders!
+  dob: String!
+  childAge: String!
+
+  isActive: Boolean
+  avatarUrl: String
+  extracurricular: [String]
+  medicalConditions: [String]
+  wishes: [String]
+  seqNo: Int
+  needsCount: Int
+
+  # JOINTS
+  measurements: Measurements!
+  needs: [Need!]!
+  family:Family!
+}
+
+input ChildInput {
+  firstName: String!
+  lastName: String!
+  gender: String!
+  dob: String!
+
+  isActive: Boolean
+  avatarUrl: String
+  extracurricular: [String]
+  medicalConditions: [String]
+  wishes: [String]
+  seqNo: Int
+  
+  #needsCount: Int
+  
+  measurements: MeasurementInput
+
+  familyId:ID!
+}
+
+input ChildUpdateInput {
+  id: String
+  firstName: String!
+  lastName: String!
+  gender: String!
+  dob: String!
+
+  isActive: Boolean
+  avatarUrl: String
+  extracurricular: [String]
+  medicalConditions: [String]
+  wishes: [String]
+  seqNo: Int
+  
+  #needsCount: Int
+
+  measurements: MeasurementInput
+
+  familyId:ID!
+}
+
+type Measurements {
+  footSize: String!
+  wardrobeSize: String!
+}
+
+input MeasurementInput {
+  footSize: String
+  wardrobeSize: String
+}
+
+enum Genders {
+  FEMALE
+  MALE
+  BETWEEN
+}

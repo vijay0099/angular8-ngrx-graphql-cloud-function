@@ -1,0 +1,12 @@
+type Query {
+  tweets: [Tweet]
+}
+
+# A Tweet Object
+type Tweet {
+  id: ID!
+  text: String!
+  # userId: String
+  likes: Int!
+  author: User!
+}

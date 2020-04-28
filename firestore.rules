@@ -1,0 +1,64 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth.uid != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    function isKnownUser() {
+      return isAuthenticated() && exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    // function isStaff() {
+    //   return isAuthenticated() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isStaff == true;
+    // }
+
+    // function isOwner() {
+    //   // THE AUTH TOKEN'S UID MUST EQUAL THE RECORD'S OWNER FIELD
+    //   return request.auth.uid == resource.data.owner;
+    // }
+
+    // function isOwnerRequest() {
+    //   // THE AUTH TOKEN'S UID MUST EQUAL THE ATTEMPTED WRITE'S OWNER FIELD
+    //   return request.auth.uid == request.resource.data.owner;
+    // }
+
+
+    // ref: https://stackoverflow.com/questions/56065012/role-based-firestore-rules
+    // function hasRole(userId, role) {
+    //     return exists(/databases/$(database)/documents/users/$(userId)/roles/$(role))
+    // }
+
+    // function isValidEmail() {
+    // // ref: https://stackoverflow.com/questions/55989566/how-to-escape-characters-in-string-in-firestore-rules
+  //   return  newData().email.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+    // }
+
+
+    match /users/{userId} {
+      // SECURE USERS LIST SO NOBODY FROM THE FRONT-END
+      // CANNOT READ FROM OR WRITE TO THIS WHITE LIST OF USERS
+      allow read, write: if false;
+    }
+
+    match /children/{childId} {
+      //  ONLY AUTHENTICATED & USERS ON WHITE LIST CAN READ THE DOCUMENTS
+      allow read: if isKnownUser();
+      // ONLY ADMINS CAN WRITE TO THE DOCUMENTS
+      allow write: if isAdmin();
+
+      match /needs/{needId} {
+        // DEPLOYED
+        allow read: if isKnownUser();
+      }
+    }
+
+
+
+  }
+}

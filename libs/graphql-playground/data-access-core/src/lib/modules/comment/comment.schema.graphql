@@ -1,0 +1,43 @@
+type Query {
+  getComments(query: String): [Comment!]!
+  getComment(query: CommentFindInput): Comment!
+}
+
+type Mutation {
+  createComment(data: CommentInput): Comment!
+  updateComment(data: CommentUpdateInput): Comment!
+  deleteCommentDoc(data: CommentDeleteInput): Comment!
+}
+
+input CommentFindInput{
+  id: ID!
+  postId: ID!
+}
+
+input CommentDeleteInput{
+  id: ID!
+  postId: ID!
+}
+
+type Comment {
+  id: ID!
+  post: Post!
+  user: User!
+  comment: String!
+  isDeleted: Boolean
+}
+
+input CommentInput {
+  postId: ID!
+  userId: ID!
+  comment: String!
+  isDeleted: Boolean
+}
+
+input CommentUpdateInput {
+  id:ID!
+  postId: ID!
+  userId: ID!
+  comment: String!
+  isDeleted: Boolean
+}

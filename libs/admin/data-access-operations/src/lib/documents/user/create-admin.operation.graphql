@@ -1,0 +1,13 @@
+mutation createAdmin($input: AdminInput!) {
+  createAdmin( data: $input ) {
+    id 
+    username 
+    fullName
+    email 
+    phoneNumber 
+    role
+    providerId
+    photoUrl
+    isNewUser
+  }
+}

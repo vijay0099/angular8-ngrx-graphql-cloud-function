@@ -1,0 +1,15 @@
+scalar Object
+
+input QueryFilterInput {
+  search: String
+  filter: Object
+  sortOrder: SortOrder
+  sortField: String
+  limit: Int 
+  offset: Int
+}
+
+enum SortOrder {
+  asc
+  desc
+}

@@ -1,0 +1,13 @@
+query getUsers($query: QueryFilterInput!) {
+  getUsers(query: $query) {
+    id
+    username
+    fullName
+    email
+    phoneNumber
+    role
+    providerId
+    photoUrl
+    isNewUser
+  }
+}
