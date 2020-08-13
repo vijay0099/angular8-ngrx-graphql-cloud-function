@@ -231,7 +231,7 @@
     "prettier": "1.19.1",
     "replace-in-file": "^5.0.2",
     "rimraf": "^3.0.2",
-    "serialize-javascript": "^2.1.1",
+    "serialize-javascript": "^3.1.0",
     "ts-jest": "24.2.0",
     "ts-node": "^8.6.2",
     "tsc-watch": "^4.2.3",
